@@ -30,3 +30,18 @@ negativeBase = base.negative()
 # Una fila de tablero vacia con su negativo
 row = base.horizontalRepeat(4)
 negativeRow = negativeBase.horizontalRepeat(4)
+
+# Par de lineas vacias alternadas
+rowPair = row.up(negativeRow)
+
+# Filas 3 a 6 del tablero, estas estan vacias
+row3_6 = rowPair.verticalRepeat(2)
+
+# La séptima fila del tablero (esta seria de peones blancos asi que solo alternamos la fila de peones negros
+row7 = row2.negative()
+
+# Octava fila con piezas blancas, alterna a la primera fila de piezas negras
+row8 = row1.negative()
+
+# Dibujamos el tablero completo donde la 1 esta por encima de todos y desciende hasta la 8
+draw(row1.up(row2).up(row3_6).up(row7).up(row8))
