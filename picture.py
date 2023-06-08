@@ -48,3 +48,35 @@ class Picture:
       newimg.append(row)
 
     return Picture(newimg)
+
+    def join(self, p):
+    """ Devuelve una nueva figura poniendo la figura del argumento 
+        al lado derecho de la figura actual """
+    newimg = []
+    x = 0
+    while x < len(self.img):
+      newimg.append(self.img[x] + p.img[x])
+      x += 1
+
+    return Picture(newimg)
+
+  def up(self, p):
+    newimg = []
+    for r in self.img:
+      newimg.append(r)
+
+    for r in p.img:
+      newimg.append(r)
+    return Picture(newimg)
+
+  def under(self, p):
+    """ Devuelve una nueva figura poniendo la figura p sobre la
+        figura actual """
+    newimg = []
+    for r in p.img:
+      newimg.append(r)
+
+    for r in self.img:
+      newimg.append(r)
+
+    return Picture(newimg)
