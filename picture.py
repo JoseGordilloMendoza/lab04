@@ -69,7 +69,7 @@ class Picture:
       newimg.append(r)
     return Picture(newimg)
 
-  def under(self, p):
+    def under(self, p):
     """ Devuelve una nueva figura poniendo la figura p sobre la
         figura actual """
     newimg = []
@@ -80,3 +80,48 @@ class Picture:
       newimg.append(r)
 
     return Picture(newimg)
+    
+    def horizontalRepeat(self, n):
+    """ Devuelve una nueva figura repitiendo la figura actual al costado
+        la cantidad de veces que indique el valor de n """
+    newimg = []
+
+    for r in self.img:
+      x = 1
+      row = ""
+      while x <= n:
+        row += r
+        x += 1
+      newimg.append(row)
+
+    return Picture(newimg)
+
+  def verticalRepeat(self, n):
+    newimg = []
+
+    x = 1
+    while x <= n:
+      for r in self.img:
+        newimg.append(r)
+      x += 1
+
+    return Picture(newimg)
+
+  #Extra: Sólo para realmente viciosos 
+  def rotate(self):
+    """Devuelve una figura rotada en 90 grados, puede ser en sentido horario
+    o antihorario"""
+    newimg = []
+    i = 0
+    while (i < len(self.img[0])):
+      row = ""
+      j = len(self.img) - 1
+      while (j >= 0):
+        aux = self.img[j]
+        row += aux[i]
+        j -= 1
+      newimg.append(row)
+      i += 1
+      
+    return Picture(newimg)
+  
